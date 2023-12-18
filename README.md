@@ -5,9 +5,9 @@
  
 > Shailendra Singh
 
-> (Ankit Priyadarshi)[https://github.com/ankitpriyadarshii]
+> [Ankit Priyadarshi](https://github.com/ankitpriyadarshii)
 
 > Deepak Maurya
 
-> (Ayush Bhatt)[https://github.com/alternateAyush]
+> [Ayush Bhatt](https://github.com/alternateAyush)
  
