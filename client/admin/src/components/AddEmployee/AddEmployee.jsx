@@ -1,11 +1,12 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import TextInput from "./TextInput"
-import { MdDelete } from "react-icons/md";
+import { MdDelete,MdEdit } from "react-icons/md";
 import { IoPersonAdd } from "react-icons/io5";
 import FileBase from 'react-file-base64';
 import {notify} from '../index.js';
-import { createEmployee } from '../../redux/actions/employees.js';
-import {useDispatch} from 'react-redux';
+import { createEmployee,setEditEmp,updateEmployee } from '../../redux/actions/employees.js';
+import moment from 'moment';
+import {useDispatch,useSelector} from 'react-redux';
 
 const classes = {
     inputContainer :"flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2"
@@ -13,6 +14,8 @@ const classes = {
 
 const AddEmployee = () => {
     const dispatch = useDispatch();
+    const currentId=useSelector((state)=>state.employees.employeeId);  
+    const employee=useSelector((state)=> currentId? state.employees.employees.find((e)=>e._id==currentId):null);
     const [emp,setEmp] = useState({
         firstName:"",
         lastName:"",
@@ -24,11 +27,28 @@ const AddEmployee = () => {
         department:"IT",
         imgUrl:null,
     });
+    useEffect(()=>{
+        console.log(employee);
+        if(employee){
+            const tempEmp = {
+                ...employee,
+                dob:moment(employee.dob).format('YYYY-MM-DD'),
+                doj:moment(employee.doj).format('YYYY-MM-DD'),
+            }
+            setEmp(tempEmp);
+        }
+    },[employee])
     const handleSubmit=(e)=>{
         e.preventDefault();
         const submitFunc=async()=>{
-            await dispatch(createEmployee(emp));
-            notify.success('New Employee added!')
+            if(currentId){
+                await dispatch(updateEmployee({id:currentId,employee:emp}));    
+                notify.success('Employee profile updated!.') 
+            }else{
+                await dispatch(createEmployee(emp));
+                notify.success('New Employee added!')
+            }
+            dispatch(setEditEmp(null));            
             handleClear();
             return;
         }
@@ -48,7 +68,7 @@ const AddEmployee = () => {
         });        
     }
   return (
-    <div className="m-2 p-2 text-blue-500 flex flex-col space-y-2 w-3/4 md:w-1/2 border-transparent rounded bg-white/75">
+    <div className="mt-16 p-2 text-blue-500 flex flex-col space-y-2 w-3/4 md:w-1/2 border-transparent rounded bg-white/75">
       <span className="font-bold m-2 mb-4">Add New Employee</span>      
       <form className="flex flex-col space-y-2" onSubmit={handleSubmit}>
         <div className='mb-3 flex flex-col justify-center items-center'>
@@ -88,7 +108,7 @@ const AddEmployee = () => {
                 <MdDelete size={20}/><span>Clear</span>
             </button>
             <button type="submit" className="flex flex-row justify-center items-center space-x-1 bg-blue-500 w-1/2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <IoPersonAdd size={20}/><span>Employee</span>                
+                {(currentId)? <MdEdit size={20}/> :<IoPersonAdd size={20}/>}<span>Employee</span>                
             </button>
         </div>
         

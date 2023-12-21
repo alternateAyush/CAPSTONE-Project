@@ -11,7 +11,7 @@ const Search = () => {
         dispatch(getEmployees());
     })
     return (
-        <div className='flex flex-col justify-start items-center h-auto p-2 m-2 w-3/4 bg-white/50 rounded'>
+        <div className='z-0 flex flex-col justify-start items-center h-auto p-2 mt-16 w-3/4 bg-white/50 rounded'>
             <SearchBar/>
             <Employees/>        
         </div>

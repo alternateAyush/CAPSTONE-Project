@@ -1,7 +1,7 @@
 // import React from 'react'
 import { useState,useEffect } from "react"
 import {useSelector} from "react-redux";
-import Employee from "./Emploee/Employee"
+import Employee from "./Employee/Employee"
 
 const Employees = () => { 
   const employees=useSelector((state)=>state.employees.employees);  
@@ -18,6 +18,7 @@ const Employees = () => {
         {
           employees.map((emp)=>{
             return <Employee key={emp._id} emp={emp}/>
+        
           })
         }
       </div> 
