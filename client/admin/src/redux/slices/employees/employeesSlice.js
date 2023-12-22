@@ -25,7 +25,7 @@ export const employeesSlice = createSlice({
             console.log('getEmployees data: ',action.payload)            
         })
         builder.addCase(createEmployee.fulfilled, (state,action)=>{
-            state.employees.push(action.payload);            
+            state.employees.unshift(action.payload);            
         })
         builder.addCase(deleteEmployee.fulfilled, (state,action)=>{
             state.employees = state.employees.filter((emp)=>emp._id!=action.payload);            

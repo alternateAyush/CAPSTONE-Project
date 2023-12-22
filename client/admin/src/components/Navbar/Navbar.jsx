@@ -14,21 +14,21 @@ const Navbar = () => {
       </Link>
       </div>
       <ul className='flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-3'>
-        <li><Link to='/search' className='flex flex-row justify-center items-center space-x-1'>
+        <li><Link to='/search' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <IoSearch/> <span>Search</span>
         </Link></li>
-        <li><Link to='/addEmployee' className='flex flex-row justify-center items-center space-x-1'>
+        <li><Link to='/addEmployee' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <IoPersonAdd/><span>Employee</span>
         </Link></li>
-        <li><Link to='/issues' className='flex flex-row justify-center items-center space-x-1'>
+        <li><Link to='/issues' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <MdOutlineReportGmailerrorred/>
           <span>Issues</span> 
         </Link></li>
-        <li><Link to='/profile' className='flex flex-row justify-center items-center space-x-1'>
+        <li><Link to='/profile' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <IoPerson/>
           <span>Profile</span> 
         </Link></li>
-        <li><Link to='/about' className='flex flex-row justify-center items-center space-x-1'>
+        <li><Link to='/about' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <MdOutlineInfo/>
           <span>About</span> 
         </Link></li>

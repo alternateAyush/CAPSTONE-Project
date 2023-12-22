@@ -47,14 +47,14 @@ const AddEmployee = () => {
             }else{
                 await dispatch(createEmployee(emp));
                 notify.success('New Employee added!')
-            }
-            dispatch(setEditEmp(null));            
+            }                      
             handleClear();
             return;
         }
         submitFunc();
     }
     const handleClear=()=>{
+        dispatch(setEditEmp(null));  
         setEmp({
             firstName:"",
             lastName:"",
@@ -93,12 +93,12 @@ const AddEmployee = () => {
         <div className={classes.inputContainer}>
         <TextInput type='text' name='role' label='Job Role' value={emp.jobRole} handleChange={(value)=>{setEmp({...emp,jobRole:value})}}/>     
         <div className="relative z-0 w-full mb-5 group">
-            <select name="department" defaultValue="IT" id="department" onChange={(e)=>{setEmp({...emp,department:e.target.value})}} className="block py-2.5 px-0 w-full text-sm text-blue-900 bg-transparent border-0 border-b-2 border-blue-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required>
-                <option value="IT">IT</option>
-                <option value="Accounting">Accounting</option>
-                <option value="Sales">Sales</option>
-                <option value="Marketing">Marketing</option>
-                <option value="HR">HR</option>
+            <select name="department" id="department" onChange={(e)=>{setEmp({...emp,department:e.target.value})}} className="block py-2.5 px-0 w-full text-sm text-blue-900 bg-transparent border-0 border-b-2 border-blue-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required>
+                <option value="IT" selected={(emp.department=="IT")? true:false}>IT</option>
+                <option value="Accounting" selected={(emp.department=="Accounting")? true:false}>Accounting</option>
+                <option value="Sales" selected={(emp.department=="Sales")? true:false}>Sales</option>
+                <option value="Marketing" selected={(emp.department=="Marketing")? true:false}>Marketing</option>
+                <option value="HR" selected={(emp.department=="HR")? true:false}>HR</option>
             </select>
             <label htmlFor="department" className="peer-focus:font-medium absolute text-sm text-blue-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Department</label>
         </div>

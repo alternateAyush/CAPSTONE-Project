@@ -1,5 +1,5 @@
 // import React from 'react'
-import {Navbar,Home,AddEmployee,Search,IssuePage} from './components/index.js';
+import {Navbar,Home,AddEmployee,Search,IssuePage,About} from './components/index.js';
 import { Routes,Route } from "react-router-dom";
 import { BrowserRouter } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ const App = () => {
           <Route path='/editEmployee' element={<AddEmployee/>}/>
           <Route path='/search' element={<Search/>}/>
           <Route path='/issues' element={<IssuePage/>}/>
+          <Route path='/about' element={<About/>}/>
           {/* <Route path='/auth' element={<Auth/>}/> */}
         </Routes>   
     </div>
