@@ -12,10 +12,12 @@ const employeeSchema = mongoose.Schema({
     empId:{
         type:String,
         required:true,
+        unique:true,
     },
     email:{
         type:String,
         required:true,
+        unique:true,
     },
     jobRole:{
         type:String,
