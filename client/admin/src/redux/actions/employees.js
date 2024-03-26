@@ -5,6 +5,7 @@ import {createAction, createAsyncThunk} from '@reduxjs/toolkit';
 //     return tags.split(",");
 // }
 export const setEditEmp = createAction('setEditEmp');
+export const setEmpReport = createAction('setEmpReport');
 
 export const getEmployees = createAsyncThunk('FETCH_ALL', async()=>{
     try{

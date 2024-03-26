@@ -7,7 +7,7 @@ import { MdOutlineReportGmailerrorred } from "react-icons/md";
 
 const Navbar = () => {
   return (
-    <div className="fixed bg-white shadow-md shadow-blue-300 z-10 left-0 top-0 w-screen px-4 pr-5 py-2 md:py-0 h-auto md:h-12 flex flex-col md:flex-row justify-between items-start  md:items-center bg-sky-500 text-black font-bold">
+    <div className="fixed bg-white shadow-md shadow-green-300 z-10 left-0 top-0 w-screen px-4 pr-5 py-2 md:py-0 h-auto md:h-12 flex flex-col md:flex-row justify-between items-start  md:items-center bg-sky-500 text-black font-bold">
       <div className='my-2 md:my-0 text-lg'>
       <Link to='/'>
         <span>Logo</span>
@@ -36,9 +36,9 @@ const Navbar = () => {
           <span>About</span> 
         </Link></li>
         <li>
-          <button type="submit" className="flex flex-row justify-center items-center space-x-1 bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded">
+          <Link to="/" className="flex flex-row justify-center items-center space-x-1 bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded">
               <CiLogout size={15}/><span>Logout</span>                
-          </button>
+          </Link>
         </li>
       </ul>
     </div>

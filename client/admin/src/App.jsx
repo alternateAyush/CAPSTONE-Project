@@ -1,5 +1,5 @@
 // import React from 'react'
-import {Navbar,Home,AddEmployee,Search,IssuePage,About} from './components/index.js';
+import {Navbar,Home,AddEmployee,Search,IssuePage,About,Review,ReviewFormat,ReviewReport,IndividualReport} from './components/index.js';
 import { Routes,Route } from "react-router-dom";
 import { BrowserRouter } from 'react-router-dom';
 
@@ -13,6 +13,10 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/addEmployee' element={<AddEmployee/>}/>
+          <Route path='/review' element={<Review/>}/>
+          <Route path='/review/format' element={<ReviewFormat/>}/>
+          <Route path='/review/report' element={<ReviewReport/>}/>
+          <Route path='/review/individual' element={<IndividualReport/>}/>
           <Route path='/editEmployee' element={<AddEmployee/>}/>
           <Route path='/search' element={<Search/>}/>
           <Route path='/issues' element={<IssuePage/>}/>

@@ -1,9 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {getEmployees,createEmployee,deleteEmployee,setEditEmp,updateEmployee} from '../../actions/employees.js';
+import {getEmployees,createEmployee,deleteEmployee,setEditEmp,setEmpReport,updateEmployee} from '../../actions/employees.js';
 
 const initialState = {
     employees:[],
     employeeId:null,
+    empReport:null,
 }
 
 export const employeesSlice = createSlice({
@@ -32,6 +33,9 @@ export const employeesSlice = createSlice({
         })
         builder.addCase(setEditEmp,(state,action)=>{
             state.employeeId=action.payload
+        })
+        builder.addCase(setEmpReport,(state,action)=>{
+            state.empReport=action.payload
         })
         builder.addCase(updateEmployee.fulfilled, (state,action)=>{
             state.employees=state.employees.map((emp)=>{
