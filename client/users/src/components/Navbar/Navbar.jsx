@@ -14,18 +14,15 @@ const Navbar = () => {
       </Link>
       </div>
       <ul className='flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-3'>
-        <li><Link to='/search' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
+        <li><Link to='/home' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <IoSearch/> <span>Search</span>
         </Link></li>
-        <li><Link to='/addEmployee' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
-          <IoPersonAdd/><span>Employee</span>
-        </Link></li>
-        <li><Link to='/review' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
-          <IoPersonAdd/><span>Review</span>
+        <li><Link to='/reviews' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
+          <IoPersonAdd/><span>Reviews</span>
         </Link></li>
         <li><Link to='/issues' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <MdOutlineReportGmailerrorred/>
-          <span>Issues</span> 
+          <span>Issue</span> 
         </Link></li>
         <li><Link to='/profile' className='flex flex-row justify-center items-center space-x-1 hover:opacity-90'>
           <IoPerson/>

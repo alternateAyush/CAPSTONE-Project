@@ -18,7 +18,7 @@ const Issue = ({issue}) => {
   }
   return (
     <div className='relative z-0 flex flex-col p-2 space-y-3 w-full border-2 border-red-500 rounded'>
-        <button className='absolute top-2 right-2' onClick={handleClick}><FaBookmark color={(importance)?'red':'white'}/></button>
+        <button className='absolute top-2 right-2' onClick={handleClick}><FaBookmark color={(importance)?'red':'grey'}/></button>
         <div className='flex flex-row space-x-2 justify-start items-center'>
            <MdOutlineReportGmailerrorred color='red' size={40} />
            <div className='flex flex-row space-x-1 items-baseline'>

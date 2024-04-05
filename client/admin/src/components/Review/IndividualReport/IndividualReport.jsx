@@ -84,7 +84,7 @@ const IndividualReport = () => {
               return <div key={rate.id} className='w-full flex flex-col space-y-3'>
                 <div className='text-xl font-bold text-purple-700'>{rate.description}</div>
                 <div className='flex flex-row justify-start items-stretch bg-gray-500 w-3/4 h-5 rounded-lg shadow-lg'>
-                  <div className={`w-${rate.rating.toString()}010 rounded-l-lg flex flex-row justify-end shadow-lg`} style={{backgroundColor:`${rate.bgColor}`}}>
+                  <div className={`rounded-l-lg flex flex-row justify-end shadow-lg`} style={{backgroundColor:`${rate.bgColor}`, width:`${rate.rating*10}%`}}>
                     <span className='mr-2 text-sm text-white'>{rate.rating}</span>
                   </div>
                 </div>
