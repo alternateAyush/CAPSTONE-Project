@@ -19,7 +19,7 @@ const Profile = () => {
             <div className={rowCss}>
               <div className={itemCss}>
                 <span>Name:</span>
-                <span>Ayush Bhatt</span>
+                <span>Rishi Rai</span>
               </div>
               <div className={itemCss}>
                 <span>Employee Id:</span>

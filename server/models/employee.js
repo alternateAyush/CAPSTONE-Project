@@ -9,6 +9,10 @@ const employeeSchema = mongoose.Schema({
         type:String,
         required:true,
     },
+    password:{
+        type:String,
+        required:true,
+    },
     empId:{
         type:String,
         required:true,
@@ -38,6 +42,11 @@ const employeeSchema = mongoose.Schema({
     },
     imgUrl:{
         type:String,
+    },
+    manager:{
+        type:Boolean,
+        required:true,
+        default:false,
     }
 },{
     timestamps:true

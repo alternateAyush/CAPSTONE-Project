@@ -10,7 +10,7 @@ const About = () => {
         team:[
             {
                 name:'Shailendra Singh',
-                reg:'20BCE10281',
+                reg:'20BCE10281 (internship)',
                 email:'shailendra.singh2020@vitbhopal.ac.in'
             },
             {
@@ -20,7 +20,7 @@ const About = () => {
             },
             {
                 name:'Deepak Maurya',
-                reg:'20BCE10727',
+                reg:'20BCE10727 (internship)',
                 email:'deepak.maurya2020@vitbhopal.ac.in'
             },
             {
@@ -32,11 +32,11 @@ const About = () => {
         progress:[
             'Create-Read-Update-Delete operations on employee profile from admin portal.',
             'Action Response notifications.',
-            'Dummy Issue page to demonstrate the proposed solution.',
+            'Admin Frontend',
+            'Partial User Frontend'
         ],
         todo:[
-            'Setting up review system in employee/user side.',
-            'Setting up issue system in employee/user side.',
+            'Backend/Server side development.'
         ]
     }
   return (
@@ -77,25 +77,25 @@ const About = () => {
             </div>
         </div>
         <div className="bg-black/50 w-full p-4 rounded-md">
-            <span className="font-bold text-slate-300">Feel free to connect with us.</span>
+            <span className="font-bold text-slate-300 text-white">Feel free to connect with us.</span>
             <form className="my-4 flex flex-col space-y-3"action="https://getform.io/f/6cd7a44b-2d0d-4ca5-9571-8519c0e7e8f3" method="POST">
                 <div className="flex flex-row justify-center space-x-2">
                 <div className="relative z-0 w-full mb-5 group">
                     <input type="text" name="name" id="name" className="block py-2.5 px-0 w-full text-sm text-slate-200 bg-transparent border-0 border-b-2 border-blue-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label htmlFor="name" className="peer-focus:font-medium absolute text-sm text-blue-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    <label htmlFor="name" className="peer-focus:font-medium absolute text-sm text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         Name
                     </label>
                 </div>
                 <div className="relative z-0 w-full mb-5 group">
                     <input type="email" name="email" id="email" className="block py-2.5 px-0 w-full text-sm text-slate-200 bg-transparent border-0 border-b-2 border-blue-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label htmlFor="email" className="peer-focus:font-medium absolute text-sm text-blue-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    <label htmlFor="email" className="peer-focus:font-medium absolute text-sm text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         Email
                     </label>
                 </div>
                 </div>
                 <div className="relative z-0 w-full mb-5 group">
                     <input type="text" name="message" id="message" className="block py-2.5 px-0 w-full text-sm text-slate-200 bg-transparent border-0 border-b-2 border-blue-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label htmlFor="message" className="peer-focus:font-medium absolute text-sm text-blue-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    <label htmlFor="message" className="peer-focus:font-medium absolute text-sm text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         Message
                     </label>
                 </div>

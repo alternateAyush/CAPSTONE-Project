@@ -11,7 +11,24 @@ export const getEmployees = async (req, res) => {
   }
 };
 export const createEmployee = async (req, res) => {
-  const emp = req.body;
+  var emp = req.body;
+  var dob = new Date(emp.dob);
+  var intials = emp.firstName.substring(0,3);
+  var date = dob.getDate();
+  var month = dob.getMonth()+1;
+  var year = dob.getFullYear();
+  var password = intials.toUpperCase();
+  if(date<10){
+    password+="0";
+  }
+  password+=date;
+  if(month<10){
+    password+="0";
+  }
+  password+= month;
+  password+=year;
+  console.log('TEST dob: ',password);
+  emp = {...emp, password:password};
   const newEmployee = new Employee(emp);
   try {
     await newEmployee.save();

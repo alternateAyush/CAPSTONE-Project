@@ -1,6 +1,6 @@
 import React from 'react'
-import { useEffect } from 'react'
-import {useDispatch} from 'react-redux';
+import { useEffect,useState } from 'react';
+import {useDispatch,useSelector} from 'react-redux';
 import { getEmployees } from '../../redux/actions/employees';
 import {Employees} from './../index.js';
 import { IoSearchOutline } from "react-icons/io5";
