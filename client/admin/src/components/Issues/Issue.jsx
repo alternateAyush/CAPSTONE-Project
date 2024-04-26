@@ -1,49 +1,90 @@
-import React from 'react'
-import moment from 'moment'
-import { useState } from 'react';
-import { MdOutlineReportGmailerrorred } from "react-icons/md";
-import { FaBookmark } from "react-icons/fa";
-import{notify} from '../index.js';
+import React from "react";
+import moment from "moment";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateIssue,deleteIssue } from "../../redux/actions/issues";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { notify } from "..";
+import { MdDeleteOutline} from "react-icons/md";
+function formatDate(x) {
+  const date = new Date(x);
+  // Get the year, month, and day components from the date
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+  const day = String(date.getDate()).padStart(2, "0");
 
-const Issue = ({issue}) => {
-  const [importance,setImpotance] = useState(issue.important);
-  const handleClick=()=>{
-    let str="Issue marked urgent!";
-    if(importance){
-        str="Issue unmarked!";
-    }
-    issue.importance=!issue.importance;
-    setImpotance((importance)=>!importance);
-    notify.success(str);
-  }
-  return (
-    <div className='relative z-0 flex flex-col p-2 space-y-3 w-full border-2 border-red-500 rounded'>
-        <button className='absolute top-2 right-2' onClick={handleClick}><FaBookmark color={(importance)?'red':'grey'}/></button>
-        <div className='flex flex-row space-x-2 justify-start items-center'>
-           <MdOutlineReportGmailerrorred color='red' size={40} />
-           <div className='flex flex-row space-x-1 items-baseline'>
-                <span className='text-xl font-bold'>{issue.raisedBy.name}</span>
-                <span className='text-sm'>raised {moment(issue.date, "YYYYMMDD").fromNow()}</span>
-           </div>           
-        </div>   
-        <div className='flex flex-row space-x-1 items-center'>
-            {
-                issue.people.map((people)=>{
-                    return <div key={people.id} className='flex text-red-500 text-md bg-white/75 border-2 border-red-500 flex-row items-center w-auto rounded-full p-2 space-x-1'>
-                        <span>{people.id}</span>
-                        <span>{people.name}</span>
-                    </div>
-                })
-            }
-        </div>  
-        <div className='flex flex-row items-center space-x-2'>
-            <span className='font-bold'>Description:</span>
-            <div className='text-black border border-black bg-white/75 p-2 rounded'>
-                <p>{issue.description}</p>
-            </div>
-        </div>
-    </div>
-  )
+  // Concatenate the components to form the formatted date
+  console.log(`${year}${month}${day}`);
+  return `${year}${month}${day}`;
 }
 
-export default Issue
+const Issue = ({ issuee }) => {
+  const dispatch = useDispatch();
+  const [issue, setIssue] = useState(issuee);
+  const handleUrgentToggle = (e) => {
+    e.preventDefault();
+    const func = async () => {
+      const tempIssue = { ...issue, urgent: !issue.urgent };
+      try {
+        await dispatch(updateIssue({ id: issue._id, issue: tempIssue }));
+        notify.success("Issue marked urgent!.");
+      } catch (err) {
+        console.log(err);
+      }
+      setIssue(tempIssue);
+      return;
+    };
+    func();
+  };
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    if(issue.closed===false){
+      notify.error('Issue must be closed.');
+    }
+    else{
+      await dispatch(deleteIssue(issue._id));
+      console.log('deleted');
+      notify.success('Issue closed and deleted.')
+    }
+    return;
+  };
+  console.log(issue);
+  console.log(issue.createdAt);
+  return (
+    <div className="w-full bg-white flex-col justify-start items-start space-y-2 p-2 my-1 border border-transparent rounded-md shadow-md">
+      <div className="p-x-2 flex justify-between">
+        <button onClick={handleUrgentToggle}>
+          {issue.urgent == true ? <FaBookmark size={15} /> : <FaRegBookmark size={15}/>}
+        </button>
+        <button onClick={handleDelete}>
+          <MdDeleteOutline size={25}/>
+        </button>
+      </div>
+      <div className="w-full flex justify-between items-baseline">
+        <span>
+          <span className="text-xl font-bold">#Issue</span>
+          <span className="text-sm text-gray-600">{issue._id}</span>
+        </span>
+        <span className="space-x-1">
+          <span>raised by</span>
+          <span>{issue.issuer}</span>
+          <span>{moment(issue.createdAt).fromNow()}</span>
+        </span>
+      </div>
+      <div className="flex items-baseline flex-wrap space-x-2 space-y-2">
+        {issue.tags.map((empId) => {
+          return (
+            <span className="text-white bg-black rounded-md p-1" key={empId}>
+              {empId}
+            </span>
+          );
+        })}
+      </div>
+      <div className="w-full p-2 rounded-md bg-gray-200 text-gray-700">
+        <span>{issue.description}</span>
+      </div>
+    </div>
+  );
+};
+
+export default Issue;
